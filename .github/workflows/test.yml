@@ -14,16 +14,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
-          version: nightly
+          version: stable          # nightly o‘rniga stable — tavsiya qilinadi
 
       - name: Install dependencies
-        run: forge install
+        run: forge install --no-commit     # --no-commit CI uchun muhim
 
       - name: Build
         run: forge build --sizes
@@ -33,8 +31,6 @@ jobs:
 
       - name: Gas snapshot
         run: forge snapshot
-        # Note: just generate the snapshot, not --check
-        # (--check requires a committed .gas-snapshot baseline)
 
       - name: Upload gas snapshot
         uses: actions/upload-artifact@v4
