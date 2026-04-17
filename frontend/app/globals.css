@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent:     #00ff94;
+  --accent-dim: #00cc76;
+  --surface:    #111111;
+  --surface2:   #1a1a1a;
+  --border:     #222222;
+  --muted:      #555555;
+  --red:        #ff4444;
+  --yellow:     #ffd700;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  background: #0a0a0a;
+  color: #e8e8e8;
+}
+
+::-webkit-scrollbar       { width: 4px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.live-dot {
+  animation: pulse-green 2s ease-in-out infinite;
+}

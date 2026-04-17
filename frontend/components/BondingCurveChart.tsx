@@ -6,6 +6,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  ReferenceLine,
   ResponsiveContainer,
 } from "recharts";
 
@@ -13,34 +14,30 @@ interface Props {
   currentSold: bigint;
 }
 
+const FLOOR     = 0.0001;
+const STEP      = 0.0001;
+const INCREMENT = 10_000;
+
+function getCost(sold: number): number {
+  return FLOOR + STEP * Math.floor(sold / INCREMENT);
+}
+
 export function BondingCurveChart({ currentSold }: Props) {
-  // Generate curve data points
-  const data = Array.from({ length: 51 }, (_, i) => {
-    const sold  = i * 10_000; // tokens (not wei for display)
-    const floor = 0.0001;
-    const step  = 0.0001;
-    const inc   = 10_000;
-    const price = floor + step * Math.floor(sold / inc);
+  const data = Array.from({ length: 51 }, (_, i) => ({
+    sold:  i * 10_000,
+    price: parseFloat(getCost(i * 10_000).toFixed(6)),
+  }));
 
-    return {
-      sold,
-      price: parseFloat(price.toFixed(6)),
-      isCurrent: sold <= Number(currentSold) / 1e18,
-    };
-  });
-
-  const currentSoldNum = Number(currentSold) / 1e18;
+  const currentSoldNum = Math.floor(Number(currentSold) / 1e18);
 
   return (
-    <div className="bg-[#111] border border-[#1e1e1e] rounded-lg p-4">
-      <h3 className="text-sm font-mono text-[#666] mb-4">
-        bonding curve / price discovery
-      </h3>
-      <ResponsiveContainer width="100%" height={200}>
-        <AreaChart data={data} margin={{ top: 5, right: 5, bottom: 5, left: 0 }}>
+    <div className="bg-[#0d0d0d] border border-[#1e1e1e] rounded-lg p-4">
+      <p className="text-[11px] text-[#444] mb-3">bonding curve</p>
+      <ResponsiveContainer width="100%" height={160}>
+        <AreaChart data={data} margin={{ top: 4, right: 4, bottom: 0, left: 0 }}>
           <defs>
-            <linearGradient id="curveGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%"  stopColor="#00ff94" stopOpacity={0.3} />
+            <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%"  stopColor="#00ff94" stopOpacity={0.2} />
               <stop offset="95%" stopColor="#00ff94" stopOpacity={0}   />
             </linearGradient>
           </defs>
@@ -48,10 +45,15 @@ export function BondingCurveChart({ currentSold }: Props) {
             dataKey="sold"
             tick={{ fontSize: 9, fill: "#444" }}
             tickFormatter={(v) => `${v / 1000}k`}
+            axisLine={false}
+            tickLine={false}
           />
           <YAxis
             tick={{ fontSize: 9, fill: "#444" }}
             tickFormatter={(v) => `${v.toFixed(4)}`}
+            axisLine={false}
+            tickLine={false}
+            width={50}
           />
           <Tooltip
             contentStyle={{
@@ -59,21 +61,28 @@ export function BondingCurveChart({ currentSold }: Props) {
               border: "1px solid #333",
               borderRadius: 4,
               fontSize: 11,
+              fontFamily: "monospace",
             }}
-            formatter={(v: number) => [`${v} ETH`, "price"]}
-            labelFormatter={(l) => `${l.toLocaleString()} tokens sold`}
+            formatter={(v: number) => [`${v} ETH`, "price/token"]}
+            labelFormatter={(l) => `${Number(l).toLocaleString()} sold`}
+          />
+          <ReferenceLine
+            x={Math.floor(currentSoldNum / 10_000) * 10_000}
+            stroke="#00ff94"
+            strokeWidth={1}
+            strokeDasharray="3 3"
           />
           <Area
             type="stepAfter"
             dataKey="price"
             stroke="#00ff94"
-            strokeWidth={2}
-            fill="url(#curveGrad)"
+            strokeWidth={1.5}
+            fill="url(#grad)"
           />
         </AreaChart>
       </ResponsiveContainer>
-      <p className="text-[10px] font-mono text-[#444] mt-2">
-        current position:{" "}
+      <p className="text-[10px] text-[#333] mt-2">
+        current:{" "}
         <span className="text-[#00ff94]">
           {currentSoldNum.toLocaleString()} tokens sold
         </span>
