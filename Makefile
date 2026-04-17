@@ -14,8 +14,8 @@
 all: clean install build
 
 install:
-	forge install OpenZeppelin/openzeppelin-contracts --no-commit
-	forge install foundry-rs/forge-std --no-commit
+	forge install OpenZeppelin/openzeppelin-contracts
+	forge install foundry-rs/forge-std
 
 build:
 	forge build
