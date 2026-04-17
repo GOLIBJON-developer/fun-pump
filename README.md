@@ -5,7 +5,7 @@
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel)](https://fun-pump.vercel.app)
 [![Contract](https://img.shields.io/badge/Contract-Sepolia-627EEA?style=for-the-badge&logo=ethereum)](https://sepolia.etherscan.io/address/0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01)
 [![Verified](https://img.shields.io/badge/Etherscan-Verified-2ECC71?style=for-the-badge)](https://sepolia.etherscan.io/address/0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01#code)
-[![CI](https://github.com/GOLIBJON-developer/pumpclone/actions/workflows/test.yml/badge.svg)](https://github.com/GOLIBJON-developer/pumpclone/actions/workflows/test.yml)
+[![CI](https://github.com/GOLIBJON-developer/fun-pump/actions/workflows/test.yml/badge.svg)](https://github.com/GOLIBJON-developer/fun-pump/actions/workflows/test.yml)
 
 **Live:** https://fun-pump.vercel.app  
 **Contract:** [`0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01`](https://sepolia.etherscan.io/address/0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01)
