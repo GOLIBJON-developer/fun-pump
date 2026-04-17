@@ -2,12 +2,12 @@
 
 > A portfolio-grade, fully on-chain token launchpad inspired by PumpFun — anyone can launch an ERC20 token with a linear bonding curve, trade it permissionlessly, and graduate it to a liquidity pool. No presale. No team allocation. No admin can pick winners. The contract enforces every rule.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel)](https://fun-pump.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel)](https://clone-pumpfun.vercel.app)
 [![Contract](https://img.shields.io/badge/Contract-Sepolia-627EEA?style=for-the-badge&logo=ethereum)](https://sepolia.etherscan.io/address/0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01)
 [![Verified](https://img.shields.io/badge/Etherscan-Verified-2ECC71?style=for-the-badge)](https://sepolia.etherscan.io/address/0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01#code)
 [![CI](https://github.com/GOLIBJON-developer/fun-pump/actions/workflows/test.yml/badge.svg)](https://github.com/GOLIBJON-developer/fun-pump/actions/workflows/test.yml)
 
-**Live:** https://fun-pump.vercel.app  
+**Live:** https://clone-pumpfun.vercel.app  
 **Contract:** [`0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01`](https://sepolia.etherscan.io/address/0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01)
 
 ---
@@ -383,7 +383,7 @@ INCREMENT = 10,000 tokens
 
 ## Frontend
 
-**Live:** [https://fun-pump.vercel.app](https://fun-pump.vercel.app)
+**Live:** [https://clone-pumpfun.vercel.app](https://clone-pumpfun.vercel.app)
 
 Built with Next.js 15 App Router, Wagmi v2, Viem, and RainbowKit.
 
@@ -814,6 +814,6 @@ Wallet extensions (MetaMask, Phantom, etc.) inject attributes into the DOM befor
 
 Built as a portfolio project · Sepolia Testnet only · Not audited · Not financial advice
 
-[Live Demo](https://fun-pump.vercel.app) · [Contract](https://sepolia.etherscan.io/address/0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01) · [GitHub](https://github.com/GOLIBJON-developer/pumpclone)
+[Live Demo](https://clone-pumpfun.vercel.app) · [Contract](https://sepolia.etherscan.io/address/0x4C7702154e1E3f0cAbD4DaF96BB533F3678d7A01) · [GitHub](https://github.com/GOLIBJON-developer/pumpclone)
 
 </div>
