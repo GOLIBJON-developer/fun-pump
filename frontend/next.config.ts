@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  turbopack: {},
   images: {
     remotePatterns: [
       {
@@ -14,10 +15,6 @@ const nextConfig: NextConfig = {
         pathname: "/ipfs/**",
       },
     ],
-  },
-  webpack: (config) => {
-    config.externals.push("pino-pretty", "lokijs", "encoding");
-    return config;
   },
 };
 
